@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `assets` (
   `id` int(11) NOT NULL,
-  `timestamp` varchar(255) NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(255) NOT NULL,
   `symbol` varchar(10) NOT NULL,
   `max_supply` decimal(40,20) DEFAULT NULL,
@@ -77,7 +77,7 @@ INSERT INTO `assets` (`id`, `timestamp`, `name`, `symbol`, `max_supply`, `market
 CREATE TABLE `prices` (
   `id` int(11) NOT NULL,
   `asset_id` int(11) NOT NULL,
-  `timestamp` varchar(255) DEFAULT NULL,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `price` decimal(40,20) NOT NULL,
   `change_percent` decimal(40,20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
